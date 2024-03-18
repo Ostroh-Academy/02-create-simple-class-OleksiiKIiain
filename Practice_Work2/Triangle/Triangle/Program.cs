@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Text;
 
-class Point
+interface IPoint
+{
+    double X { get; set; }
+    double Y { get; set; }
+}
+
+class Point : IPoint
 {
     public double X { get; set; }
     public double Y { get; set; }
@@ -38,7 +44,7 @@ class Triangle : IShape
         return Math.Sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
-    private double CalculateDistance(Point point1, Point point2)
+    private double CalculateDistance(IPoint point1, IPoint point2)
     {
         return Math.Sqrt(Math.Pow(point2.X - point1.X, 2) + Math.Pow(point2.Y - point1.Y, 2));
     }
